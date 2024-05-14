@@ -3,6 +3,7 @@ import Home from "../pages/Home"
 import DadosEmpresa from "../pages/DadosEmpresa"
 import Usuarios from "../pages/Usuarios"
 import Livros from "../pages/Livros"
+import Categoria from "../pages/Categoria"
 
 const router = createBrowserRouter([
   {
@@ -20,6 +21,10 @@ const router = createBrowserRouter([
   {
     path: "/livros",
     element: <Livros/>,
+  },
+  {
+    path: "/categorias",
+    element: <Categoria/>,
   },
 ]);
 
