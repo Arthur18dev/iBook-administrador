@@ -1,0 +1,74 @@
+.container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    border: 2px solid #000;
+    box-shadow: 5px 5px 10px;
+    padding: 30px;
+    border-radius: 5px;
+    min-width: 700px;
+}
+
+
+.centralizaModal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    border: 2px solid #000;
+    box-shadow: 5px 5px 10px;
+    padding: 30px;
+    border-radius: 5px;
+    min-width: 700px;
+    width: 700px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    width: 900px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    margin: 30px auto;
+    padding: 20px;
+}
+
+.titulo {
+    font-size: 36px;
+    color: black;
+    line-height: 18px;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+.box {
+    width: 700px;
+}
+
+.inputs {
+    margin-bottom: 20px !important;
+}
+
+.botao {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.centralizaModal h1{
+    margin-block: 3px;
+}
+
+.centralizaModal h4{
+    margin-block: 40px;
+    font-size: 26px;
+    font-weight: 400;
+}

@@ -1,0 +1,27 @@
+.card {
+    width: 900px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    margin: 30px auto;
+    padding: 20px;
+}
+
+.titulo{
+    font-size: 36px;
+    color: black;
+    line-height: 18px;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+.container{
+    width: 700px;
+}
+
+.inputs{
+    margin-bottom: 20px !important;
+}
+
+    
