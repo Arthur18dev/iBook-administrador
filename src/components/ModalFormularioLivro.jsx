@@ -5,10 +5,10 @@ import { FormGroup, FormControl, TextField, Card, CardContent, CardActionArea, B
 import { useEffect, useState } from 'react';
 import api from '../services/api';
 import ModalGenerico from './ModalGenerico';
-import ServiceUsuarios from "../services/usuarios"
+import ServiceLivro from "../services/Livros"
 
 
-function ModalFormularioLivro({ open, handleClose, idUsuario }) {
+function ModalFormularioLivro({ open, handleClose, idLivro }) {
 
     const [imagem, setImagem] = useState("")
     const [titulo, setTitulo] = useState("")
@@ -56,25 +56,25 @@ function ModalFormularioLivro({ open, handleClose, idUsuario }) {
             frete: frete,
         }
 
-        if (idUsuario) {
-            ServiceUsuarios.editUsuariosId(idUsuario, form).then((response) => {
-                if (response.status === 200) {
-                    setCor('#008000')
-                    setMessage(response.data.message)
-                    setTitle('Sucesso')
-                    handleClose()
+        if (idLivro) {
+            // ServiceLivro.editUsuariosId(idLivro, form).then((response) => {
+            //     if (response.status === 200) {
+            //         setCor('#008000')
+            //         setMessage(response.data.message)
+            //         setTitle('Sucesso')
+            //         handleClose()
 
-                }
-            }).catch(({ response }) => {
-                if (response.status === 400) {
-                    setCor('#b20000')
-                    setMessage(response.data.message)
-                    setTitle('Erro')
-                }
-            })
-                .finally(() => setShowMessage(true))
+            //     }
+            // }).catch(({ response }) => {
+            //     if (response.status === 400) {
+            //         setCor('#b20000')
+            //         setMessage(response.data.message)
+            //         setTitle('Erro')
+            //     }
+            // })
+            //     .finally(() => setShowMessage(true))
         } else {
-            ServiceUsuarios.createUsuarios(form).then((response) => {
+            ServiceLivro.createLivro(form).then((response) => {
                 if (response.status === 201) {
                     setCor('#008000')
                     setMessage(response.data.message)
@@ -95,25 +95,25 @@ function ModalFormularioLivro({ open, handleClose, idUsuario }) {
 
     useEffect(() => {
 
-        if (idUsuario) {
+        if (idLivro) {
             setTitleFormulario('Editar')
-            ServiceUsuarios.getUsuariosId(idUsuario)
-                .then(({ data }) => {
-                    setImagem(data.imagem)
-                    setTitulo(data.titulo)
-                    setAutor(data.autor)
-                    setDescricao(data.descricao)
-                    setSinopse(data.sinopse)
-                    setTotalPaginas(data.totalPaginas)
-                    setIdioma(data.idioma)
-                    setDataPublicacao(data.dataPublicacao)
-                    setEdicao(data.edicao)
-                    setPreco(data.preco)
-                    setQuantidade(data.quantidade)
-                    setLacamento(data.lacamento)
-                    setCategoria_id(data.categoria_id)
-                    setFrete(data.frete)
-                })
+            // ServiceLivro.getUsuariosId(idLivro)
+            //     .then(({ data }) => {
+            //         setImagem(data.imagem)
+            //         setTitulo(data.titulo)
+            //         setAutor(data.autor)
+            //         setDescricao(data.descricao)
+            //         setSinopse(data.sinopse)
+            //         setTotalPaginas(data.totalPaginas)
+            //         setIdioma(data.idioma)
+            //         setDataPublicacao(data.dataPublicacao)
+            //         setEdicao(data.edicao)
+            //         setPreco(data.preco)
+            //         setQuantidade(data.quantidade)
+            //         setLacamento(data.lacamento)
+            //         setCategoria_id(data.categoria_id)
+            //         setFrete(data.frete)
+            //     })
         } else {
             setTitleFormulario('Inserir Novo')
             //Resetar Valores
@@ -132,7 +132,7 @@ function ModalFormularioLivro({ open, handleClose, idUsuario }) {
             setCategoria_id('')
             setFrete('')
         }
-    }, [idUsuario])
+    }, [idLivro])
 
 
 
@@ -147,7 +147,7 @@ function ModalFormularioLivro({ open, handleClose, idUsuario }) {
                 <Box className={styles.container}>
                     <Card className={styles.card}>
                         <label className={styles.titulo}>{titleFormulario} Livro</label>
-                        <CardContent>
+                        <CardContent className={styles.formulario}>
                             <FormGroup className={styles.box} >
                                 <FormControl className={styles.inputs} >
                                     <TextField id="outlined-basic" label="imagem" variant="outlined"

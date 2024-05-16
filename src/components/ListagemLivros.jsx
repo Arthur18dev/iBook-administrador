@@ -65,10 +65,10 @@ function ListagemUsuarios({ reload, handleEditar }) {
                                 <TableCell>{row.descricao}</TableCell>
                                 <TableCell>{row.quantidade}</TableCell>
                                 <TableCell>{row.preco}</TableCell>
-                                <TableCell>
+                                {/* <TableCell>
                                     <DeleteIcon onClick={() => deletarUsuario(row._id)} />
                                     <EditIcon onClick={() => handleEditar(row._id)} />
-                                </TableCell>
+                                </TableCell> */}
                             </TableRow>
                         ))
                             :

@@ -13,6 +13,9 @@ const livrosServices = {
                 categoriaId: id
             }
         })
+    },
+    createLivro: (form) => {
+        return api.post('livros', form)
     }
 }
 
