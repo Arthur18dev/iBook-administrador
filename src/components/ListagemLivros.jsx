@@ -11,7 +11,7 @@ import EditIcon from '@mui/icons-material/DriveFileRenameOutline';
 
 import ServiceLivro from "../services/Livros"
 import { useEffect, useState } from "react";
-
+import formatCurrency from "../utils/formatCurrency"
 
 function ListagemUsuarios({ reload, handleEditar }) {
     const [rows, setRows] = useState([])

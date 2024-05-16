@@ -1,29 +1,29 @@
 import Navbar from "../components/Navbar"
 import ListagemLivros from "../components/ListagemLivros"
 import BotaoFlutuante from "../components/BotaoFlutuante"
-import ModalFormularioUsuarios from "../components/ModalFormularioUsuarios"
+import ModalFormularioLivro from "../components/ModalFormularioLivro"
 import { useState } from "react"
 
 
 function Livros() {
     const [abreModal, setAbreModal] = useState(false)
-    const [idUser, setidUser] = useState(null)
+    const [idLivro, setidLivro] = useState(null)
 
     const abrirModal = () => {
-        setidUser(null)
+        setidLivro(null)
         setAbreModal(true)
     }
 
-    const editarUsuario = ( id ) => {
-        setidUser(id)
+    const editarLivro = ( id ) => {
+        setidLivro(id)
         setAbreModal(true)
     }
 
     return (<>
         <Navbar />
-        <ListagemLivros reload={abreModal} handleEditar={editarUsuario}/>
+        <ListagemLivros reload={abreModal} handleEditar={editarLivro}/>
         <BotaoFlutuante aoClicar={abrirModal} />
-        <ModalFormularioUsuarios open={abreModal}  handleClose ={ () => setAbreModal(false)} idUsuario={idUser}/>
+        <ModalFormularioLivro open={abreModal}  handleClose ={ () => setAbreModal(false)} idLivro={idLivro}/>
     </>
     )
 }

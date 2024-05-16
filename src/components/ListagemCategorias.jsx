@@ -9,7 +9,7 @@ import Paper from '@mui/material/Paper';
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/DriveFileRenameOutline';
 
-import ServiceLivro from "../services/Livros"
+import ServiceCategoria from "../services/categoria"
 import { useEffect, useState } from "react";
 
 
@@ -18,7 +18,7 @@ function ListagemCategorias({ reload, handleEditar }) {
 
     useEffect(() => {
         if (!reload)
-            ServiceLivro.getLivrosCategoria().then((response) => {
+            ServiceCategoria. getAllCategoria().then((response) => {
                 setRows(response.data)
             }).catch((erro) => {
                 console.log(erro)
@@ -29,8 +29,8 @@ function ListagemCategorias({ reload, handleEditar }) {
 
     function deletarUsuario(id) {
 
-        ServiceLivro.deleteUsuariosId(id).then(() => {
-            ServiceLivro.getLivrosCategoria().then((response) => {
+        ServiceCategoria.deleteUsuariosId(id).then(() => {
+            ServiceCategoria. getAllCategoria().then((response) => {
                 setRows(response.data)
             })
         })
@@ -48,10 +48,8 @@ function ListagemCategorias({ reload, handleEditar }) {
                 <Table sx={{ minWidth: 650 }} aria-label="simple table">
                     <TableHead>
                         <TableRow>
-                            <TableCell>Título</TableCell>
-                            <TableCell>Descrição</TableCell>
-                            <TableCell>Quantidade</TableCell>
-                            <TableCell>Preço</TableCell>
+                        <TableCell>Id</TableCell>
+                            <TableCell>Nome</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
@@ -61,11 +59,8 @@ function ListagemCategorias({ reload, handleEditar }) {
                                 sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                                 className={styles.linhas}
                             >
+                                 <TableCell>{row.id}</TableCell>
                                 <TableCell>{row.nome}</TableCell>
-                                <TableCell>
-                                    <DeleteIcon onClick={() => deletarUsuario(row._id)} />
-                                    <EditIcon onClick={() => handleEditar(row._id)} />
-                                </TableCell>
                             </TableRow>
                         ))
                             :
